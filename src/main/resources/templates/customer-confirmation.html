@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Student confirmation</title>
+</head>
+<body>
+  <h2 th:text="'The student is confirmed: ' + ${customerModel.firstName} + ' ' + ${customerModel.lastName}"></h2>
+  <h2 th:text="'Free passes: ' + ${customerModel.freePasses}"></h2>
+  <h2 th:text="'Postal Code: ' + ${customerModel.postalCode}"></h2>
+  <h2 th:text="'Course Code: ' + ${customerModel.courseCode}"></h2>
+  <a th:href="@{/customer/show-form}">customer-form</a>
+</body>
+</html>

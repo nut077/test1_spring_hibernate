@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Hello world</title>
+</head>
+<body>
+<h2>Hello world of Spring Boot</h2>
+<span th:text="'Student name: ' + ${#strings.toUpperCase(studentName)}"></span>
+<br/>
+<ul>
+  <li th:each="l: ${list}" th:text="${l}"></li>
+</ul>
+<br/>
+<a th:href="@{/}">form</a>
+</body>
+</html>

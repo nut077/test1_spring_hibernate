@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Student form</title>
+  <style>
+    li {
+      list-style-type: none;
+      display: inline;
+    }
+  </style>
+</head>
+<body>
+<form th:action="@{/student/process-form}" th:object="${student}">
+  First name: <input th:type="text" th:field="*{firstName}"/><br/>
+  Last name: <input th:type="text" th:field="*{lastName}"/><br/>
+  <select th:field="*{country}">
+    <option th:each="lc: ${listCountry}" th:value="${lc.key}" th:text="${lc.value}"></option>
+  </select><br/>
+  Favorite Language:
+  <ul>
+    <li th:each="lang: ${listLanguage}">
+      <input th:type="radio" th:field="*{favoriteLanguage}" th:value="${lang.key}"/>
+      <label th:for="${#ids.prev('favoriteLanguage')}" th:text="${lang.value}"></label>
+    </li>
+  </ul>
+  <br/>
+  <ul>
+    <li th:each="sys: ${listOperatingSystem}">
+      <input th:type="checkbox" th:field="*{operatingSystem}" th:value="${sys.key}"/>
+      <label th:for="${#ids.prev('operatingSystem')}" th:text="${sys.value}"></label>
+    </li>
+  </ul>
+  <br/>
+  <input type="submit" th:value="Submit"/><br/>
+  <a th:href="@{/}">home</a>
+</form>
+
+</body>
+</html>
